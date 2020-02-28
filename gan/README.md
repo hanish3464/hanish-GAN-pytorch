@@ -1,4 +1,6 @@
 ## Result (face image)
+**`latent vector : 200, normalize (mean=0.5 variance=0.5), lr = 0.0001`**
+
 ![gan_face](https://user-images.githubusercontent.com/51018265/75560311-45b89c00-5a88-11ea-8d72-736843a94907.png)
 
 ```
@@ -9,6 +11,15 @@
       2. 26개의 train image 중에 위의 3개의 안경을 쓰지 않은 이미지로 유도되어 생성되는 이유를 모르겠다. 똑같은 환경에서 학습을 진행 할 경우 다른 이미지가
       유도 될 만큼 학습이 불안정하다는 것을 알겠는데 지속적으로 등장하는 2장의 이미지는 기준이 무엇인지 궁금하다.
       
+```
+
+## Experiments
+
+`1. 이미지 nomalizeMeanVariance을 적용하지 않을 경우` **`Result : Divergence`**
+![divergence](https://user-images.githubusercontent.com/51018265/75564143-f033bd80-5a8e-11ea-9a43-db6853841491.png)
+
+```
+2. Latent Vector 사이즈 조절
 ```
 
 ## Network Architecture
