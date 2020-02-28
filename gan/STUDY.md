@@ -42,6 +42,5 @@ numpy 의 product (128, 128, 3) 을 넘기면 세 값을 모두 곱한 것을 re
 
 ## Batch Normalization
 
-학습 안정화, Gradient Vanishing / Gradient Exploding 이 일어나지 않도록 하는 아이디어, ReLU Careful, Initialization, small learning rate 등의 방식으로 넘어선
-학습 과정에서 개입하여 안정성을 올리고 학습속도는 
+학습 안정화, Gradient Vanishing / Gradient Exploding 이 일어나지 않도록 하는 아이디어, ReLU Careful, Initialization, small learning rate 등의 방식으로 넘어선 학습 과정에서 개입하여 안정성을 올리고 학습속도는 
 
