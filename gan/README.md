@@ -15,7 +15,9 @@
 
 ## Experiments
 
-`1. 이미지 nomalizeMeanVariance을 적용하지 않을 경우` **`Result : Divergence`**
+**`1. 이미지 nomalizeMeanVariance을 적용하지 않을 경우`**
+
+**`Result : Divergence`**
 ![divergence](https://user-images.githubusercontent.com/51018265/75564143-f033bd80-5a8e-11ea-9a43-db6853841491.png)
 
 ```
