@@ -2,6 +2,7 @@ import torchvision.transforms as transforms
 from torchvision.utils import save_image
 from torch.utils.data import DataLoader
 from dataset import Face_Dataset
+from torchvision import datasets
 from torch.autograd import Variable
 from net import Generator, Discriminator
 import numpy as np
@@ -14,17 +15,17 @@ os.makedirs('./data/', exist_ok=True)
 ''' Arguments '''
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--epochs", type=int, default=200, help="number of epochs of training")
-parser.add_argument("--batch_size", type=int, default=2, help="size of the batches")
-parser.add_argument("--lr", type=float, default=0.0002, help="adam: learning rate")
+parser.add_argument("--epochs", type=int, default=10000, help="number of epochs of training")
+parser.add_argument("--batch_size", type=int, default=26, help="size of the batches")
+parser.add_argument("--lr", type=float, default=0.0001, help="adam: learning rate")
 parser.add_argument("--b1", type=float, default=0.5, help="adam: decay of first order momentum of gradient")
 parser.add_argument("--b2", type=float, default=0.999, help="adam: decay of first order momentum of gradient")
 parser.add_argument("--n_cpu", type=int, default=8, help="number of cpu threads to use during batch generation")
-parser.add_argument("--latent_dim", type=int, default=100, help="dimensionality of the latent space")
+parser.add_argument("--latent_dim", type=int, default=200, help="dimensionality of the latent space")
 parser.add_argument("--img_size", type=int, default=128, help="size of each image dimension")
-parser.add_argument("--channels", type=int, default=1, help="number of image channels")
-parser.add_argument("--sample_interval", type=int, default=200, help="interval between image samples")
-parser.add_argument("--display_interval", type=int, default=200, help="interval between image samples")
+parser.add_argument("--channels", type=int, default=3, help="number of image channels")
+parser.add_argument("--sample_interval", type=int, default=10, help="interval between image samples")
+parser.add_argument("--display_interval", type=int, default=10, help="interval between image samples")
 parser.add_argument("--cuda", action='store_true', default=False, help="use cuda for train")
 args = parser.parse_args()
 
@@ -40,8 +41,8 @@ if args.cuda:
     discriminator.cuda()
     adversarial_loss.cuda()
 
-''' Make MNIST folder for train '''
 
+''' Make MNIST folder for train '''
 dataset = Face_Dataset('./data/train/', args.img_size)
 dataloader = torch.utils.data.DataLoader(dataset, batch_size=args.batch_size, shuffle=True)
 
@@ -52,7 +53,9 @@ optimizer_D = torch.optim.Adam(discriminator.parameters(), lr=args.lr, betas=(ar
 Tensor = torch.cuda.FloatTensor if args.cuda else torch.FloatTensor
 
 for epoch in range(args.epochs):
+
     for i, imgs in enumerate(dataloader):
+
         # Adversarial ground truths
         valid = Variable(Tensor(imgs.size(0), 1).fill_(1.0), requires_grad=False)
         fake = Variable(Tensor(imgs.size(0), 1).fill_(0.0), requires_grad=False)
@@ -68,8 +71,10 @@ for epoch in range(args.epochs):
 
         gen_imgs = generator(z)
 
+        result = discriminator(gen_imgs)
+        print(result)
         # Loss measures generator's ability to fool the discriminator
-        g_loss = adversarial_loss(discriminator(gen_imgs), valid)
+        g_loss = adversarial_loss(result, valid)
 
         g_loss.backward()
         optimizer_G.step()
