@@ -25,6 +25,10 @@
 **`Result : other generation`**
 ![9990](https://user-images.githubusercontent.com/51018265/75603322-89ef7f00-5b10-11ea-9714-8581b8ffe41e.png)
 
+
+**`결론`** 
+`Generator가 생성하는 이미지를 제어 할 수 없다.`
+
 ## Network Architecture
 
 ### Generator
