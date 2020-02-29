@@ -20,9 +20,10 @@
 **`Result : Divergence`**
 ![divergence](https://user-images.githubusercontent.com/51018265/75564143-f033bd80-5a8e-11ea-9a43-db6853841491.png)
 
-```
-2. Latent Vector 사이즈 조절
-```
+**`2. Latent Vector 사이즈 조절`**
+
+**`Result : other generation`**
+![9990](https://user-images.githubusercontent.com/51018265/75603322-89ef7f00-5b10-11ea-9714-8581b8ffe41e.png)
 
 ## Network Architecture
 
