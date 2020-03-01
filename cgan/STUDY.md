@@ -1,3 +1,15 @@
+## nn.Embedding
+10개의 클래스에 대해 batch 만큼 embedding 한 결과. class 번호에 해당하는 index 값에 가장 큰 값으로 전환.
+
+<img width="700" alt="embed" src="https://user-images.githubusercontent.com/51018265/75623548-52570480-5bee-11ea-9f23-8b3616dd5e2e.png">
+
+
+## torch.cat
+embedding 결과와 latent vector z를 concat 할 경우.
+
+<img width="700" alt="cats" src="https://user-images.githubusercontent.com/51018265/75623621-1ff9d700-5bef-11ea-81f4-781e3ac87f23.png">
+
+
 ## Back Propagation
 
 Backpropagation은 Neural Network를 학습시키기 위한 일반적인 알고리즘이다. 역전파라는 뜻인데, 내가 뽑고자 하는 **`target값과 실제 모델이 계산한
