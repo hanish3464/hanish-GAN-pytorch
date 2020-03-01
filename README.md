@@ -11,7 +11,7 @@ pip install pytorch torchvision
 
 ## GAN List
 - [X] GAN
-- [ ] CGAN
+- [X] CGAN
 - [ ] DCGAN
 - [ ] LSGAN
 - [ ] WGAN
