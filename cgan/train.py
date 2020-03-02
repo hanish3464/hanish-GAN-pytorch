@@ -47,21 +47,6 @@ if cuda:
     discriminator.cuda()
     adversarial_loss.cuda()
 
-# Configure data loader
-# os.makedirs("./data/mnist", exist_ok=True)
-#
-# dataloader = torch.utils.data.DataLoader(
-#     datasets.MNIST(
-#         "./data/mnist",
-#         train=True,
-#         download=True,
-#         transform=transforms.Compose(
-#             [transforms.Resize(args.img_size), transforms.ToTensor(), transforms.Normalize([0.5], [0.5])]
-#         ),
-#     ),
-#     batch_size=args.batch_size,
-#     shuffle=True,
-# )
 dataset = Face_Dataset('./data/train/', args.img_size)
 dataloader = torch.utils.data.DataLoader(dataset, batch_size=args.batch_size, shuffle=True)
 
@@ -78,7 +63,6 @@ def sample_image(n_row, batches_done):
     # Sample noise
     z = Variable(FloatTensor(np.random.normal(0, 1, (n_row, args.latent_dim))))
     # Get labels ranging from 0 to n_classes for n rows
-    #labels = np.array([num for _ in range(n_row) for num in range(n_row)])
     labels = np.array([x for x in range(n_row)])
     labels = Variable(LongTensor(labels))
     gen_imgs = generator(z, labels)
