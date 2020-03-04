@@ -30,7 +30,7 @@
 
 `1. Batch Normalization 분산에 상수인 epsilon 을 크게 더함으로써 학습 자체를 안정화`
 
-`batchNorm2d(x, eps=1e-5) -> batchNord2d(x, eps=0.8)`
+`batchNorm2d(x, eps=1e-5) -> batchNorm2d(x, eps=0.8)`
 
 ![9960](https://user-images.githubusercontent.com/51018265/75841041-1d29fc80-5e10-11ea-9bcb-4a5ab51b5e49.png)
 
